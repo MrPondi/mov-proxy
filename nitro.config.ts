@@ -11,4 +11,5 @@ export default defineNitroConfig({
   alias: {
     "@": join(__dirname, "src")
   }
+  compress: false
 });
