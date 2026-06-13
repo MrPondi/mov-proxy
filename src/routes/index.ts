@@ -59,6 +59,8 @@ export default defineEventHandler(async (event) => {
     // to X-Set-Cookie to prevent the proxy domain from receiving upstream cookies.
     const responseHeaders = new Headers(upstream.headers);
     responseHeaders.delete('set-cookie');
+    responseHeaders.delete('content-encoding');
+    responseHeaders.delete('content-length');
     for (const [name, value] of Object.entries(
       getAfterResponseHeaders(upstream.headers, upstream.url),
     )) {
